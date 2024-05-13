@@ -1,0 +1,8 @@
+{
+    "name": "ui5.quickstart",
+    "version": "1.0.0",
+    "description": "UI5 quickstart tutorial",
+    "scripts": {
+        "start": "ui5 serve -o index.html"
+    }
+}
