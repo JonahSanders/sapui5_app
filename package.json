@@ -1,8 +1,11 @@
 {
     "name": "ui5.quickstart",
     "version": "1.0.0",
-    "description": "UI5 quickstart tutorial",
+    "description": "UI5 walkthrough application",
     "scripts": {
         "start": "ui5 serve -o index.html"
+    },
+    "devDependencies": {
+        "@ui5/cli": "^3.10.1"
     }
 }
