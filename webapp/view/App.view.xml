@@ -2,28 +2,12 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
     <Shell> 
-    <App>
+    <App class="myAppDemoWT">
         <pages>
             <Page title="{i18n>homePageTitle}">
                 <content>
-                    <Panel 
-                    headerText="{i18n>helloPanelText}"
-                    class="sapUiResponsiveMargin"
-                    width="auto"
-                    >
-                        <Button 
-                            text="{i18n>showHelloButtonText}" 
-                            press=".onShowHello"></Button>
-                        <Input 
-                            value="{/recipient/name}" 
-                            description="Hello {/recipient/name}" 
-                            valueLiveUpdate="true" 
-                            width="60%"></Input>
-                        <Text 
-                            text="Hello {/recipient/name}"
-                            class="sapUiSmallMargin"
-                        ></Text>
-                    </Panel>
+                    <mvc:XMLView viewName="ui5.walkthrough.view.HelloPanel"/>
+                    <mvc:XMLView viewName="ui5.walkthrough.view.InvoiceList"/>
                 </content>
             </Page>
         </pages>
