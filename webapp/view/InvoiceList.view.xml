@@ -1,16 +1,34 @@
 <mvc:View
-   controllerName="ui5.walkthrough.controller.InvoiceList"
-   xmlns="sap.m"
-   xmlns:mvc="sap.ui.core.mvc">
-   <List
-      headerText="{i18n>invoiceListTitle}"
-      class="sapUiResponsiveMargin"
-      width="auto"
-      items="{invoice>/Invoices}" >
-      <items>
-         <ObjectListItem
-            title="{invoice>Quantity} x {invoice>ProductName}"
-            number="{
+    controllerName="ui5.walkthrough.controller.InvoiceList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <List
+        id="invoiceList"
+        class="sapUiResponsiveMargin"
+        width="auto"
+        items="{
+            path: 'invoice>/Invoices',
+            sorter : {
+                path : 'ShipperName',
+                group : true
+            }
+            }"
+    >
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceListTitle}" />
+                <ToolbarSpacer />
+                <SearchField
+                    width="50%"
+                    search=".onFilterInvoices"
+                />
+            </Toolbar>
+        </headerToolbar>
+        <items>
+            <ObjectListItem
+                title="{invoice>Quantity} x {invoice>ProductName}"
+                number="{
                 parts: [
                     'invoice>ExtendedPrice',
                     'view>/currency'
@@ -20,7 +38,18 @@
                     showMeasure: false
                 }
             }"
-            numberUnit="{view>/currency}"/>
-      </items>
-   </List>
+                numberUnit="{view>/currency}"
+                numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
+            >
+                <firstStatus>
+                    <ObjectStatus
+                        text="{ 
+                    path: 'invoice>Status',
+                    formatter: '.formatter.statusText'
+                 }"
+                    />
+                </firstStatus>
+            </ObjectListItem>
+        </items>
+    </List>
 </mvc:View>
