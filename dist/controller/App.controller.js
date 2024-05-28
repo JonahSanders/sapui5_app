@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/controller"],function(t){"use strict";return t.extend("ui5.walkthrough.controller.App",{onInit(){this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass())}})});
+//# sourceMappingURL=App.controller.js.map
